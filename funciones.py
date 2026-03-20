@@ -61,9 +61,16 @@ def calcular_estadisticas(inventario):
         total = 0
         cantidad_total = 0
 
-        for p in inventario:
+        for  p in (inventario):
             total += p["precio"] * p["cantidad"]
-            cantidad_total += p["cantidad"]
+            cantidad_total += 1
+            print(f"La cantidad total es: {cantidad_total}")
 
         print(f"Valor total: {total}")
         print(f"Cantidad total de productos: {cantidad_total}")
+
+
+
+
+
+

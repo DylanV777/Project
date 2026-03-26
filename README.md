@@ -49,7 +49,8 @@ python app.py
 
 ## Diagrama de flujo
 
-<img width="554" height="456" alt="image" src="https://github.com/user-attachments/assets/9afd025b-fc32-4154-8eff-b53893b2db31" />
+<img width="554" height="425" alt="image" src="https://github.com/user-attachments/assets/d7aef530-4e27-42ca-a4ac-171768e0adf7" />
+
 
 
 ## Ejemplo de uso

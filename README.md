@@ -58,6 +58,10 @@ python app.py
 
 ---
 
+# Diagrama de flujo
+
+<img width="554" height="425" alt="image" src="https://github.com/user-attachments/assets/b28c2de2-728b-4803-a9de-dc1d8db4a94c" />
+
 ## Validaciones
 
 - Precio y cantidad deben ser valores numéricos mayores a 0

@@ -95,13 +95,13 @@ while continuar:
 
 # OPCIÓN 7: Persistencia de datos hacia archivo CSV
     elif opcion == "7":
-        guardar_csv(inventario, "inventario.csv")
+        guardar_csv(inventario)
         cambios_no_guardados = False
 
 # OPCIÓN 8: Carga de datos desde archivo externo
     elif opcion == "8":
-        ruta = input("Ingrese el nombre del archivo CSV a cargar: ")
-        cargar_csv(inventario, ruta)
+        productos_cargados = cargar_csv()
+        inventario.extend(productos_cargados)
         cambios_no_guardados = False
         input("Presione ENTER para volver al menú...")
 
@@ -111,7 +111,7 @@ while continuar:
             guardar = input(
                 "¿Quiere guardar cambios antes de salir? (S / cualquier otra tecla para NO): ")
             if guardar.upper() == "S":
-                guardar_csv(inventario, "inventario.csv")
+                guardar_csv(inventario)
             else:
                 print("Saliendo sin guardar...")
         else:

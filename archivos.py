@@ -1,17 +1,18 @@
 # Importa el módulo para trabajar con archivos CSV
 import csv
-
+ 
 # Función para guardar el inventario en un archivo CSV
-
-
-def guardar_csv(inventario, ruta):
+ 
+ 
+def guardar_csv(inventario):
     """
-    Guarda el inventario en un archivo CSV.
+    Pide la ruta al usuario y guarda el inventario en un archivo CSV.
  
     Argumentos:
         inventario (list): Lista de productos a guardar
-        ruta (str): Ruta del archivo CSV de destino
     """
+    # Pedir la ruta al usuario
+    ruta = input("Ingrese el nombre del archivo CSV a guardar: ")
     # Si el inventario está vacío, mostrar mensaje y salir
     if not inventario:
         print("Nada que guardar")
@@ -30,22 +31,24 @@ def guardar_csv(inventario, ruta):
         print("Error al guardar")
     except PermissionError:
         print("No tienes permisos")
-
+ 
 # Función para cargar un inventario desde un archivo CSV
-
-
-def cargar_csv(inventario, ruta):
+ 
+ 
+def cargar_csv():
     """
-    Carga productos desde un archivo CSV al inventario.
+    Pide la ruta al usuario y carga productos desde un archivo CSV.
     Las filas con datos inválidos son ignoradas automáticamente.
  
-    Argumentos:
-        inventario (list): Lista donde se cargarán los productos
-        ruta (str): Ruta del archivo CSV a leer
+    Retorna:
+        list: Lista de productos cargados
     """
+    # Pedir la ruta al usuario
+    ruta = input("Ingrese el nombre del archivo CSV a cargar: ")
     if not ruta.lower().endswith(".csv"):
         print("Solo se permiten archivos CSV")
-        return
+        return []
+    productos = []
     try:
         # Abrir el archivo en modo lectura
         with open(ruta, "r", encoding="utf-8") as f:
@@ -57,8 +60,8 @@ def cargar_csv(inventario, ruta):
                     nombre = fila["nombre"]
                     precio = float(fila["precio"])
                     cantidad = int(fila["cantidad"])
-                    # Agregar producto al inventario
-                    inventario.append(
+                    # Agregar producto a la lista local
+                    productos.append(
                         {"nombre": nombre, "precio": precio, "cantidad": cantidad})
                 except ValueError:
                     continue
@@ -67,3 +70,4 @@ def cargar_csv(inventario, ruta):
         print("No se encontró el archivo")
     except PermissionError:
         print("No tienes permisos")
+    return productos
